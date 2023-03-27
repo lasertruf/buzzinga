@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+
+// @use "@angular/material" as mat;
+
+// @include mat.core();
+
+// $orange-palette: (
+//   50: #fff3e0,
+//   100: #ffe0b2,
+//   200: #ffcc80,
+//   300: #ffb74d,
+//   400: #ffa726,
+//   500: #ff9800,
+//   600: #fb8c00,
+//   700: #f57c00,
+//   800: #ef6c00,
+//   900: #e65100,
+//   A100: #ffd180,
+//   A200: #ffab40,
+//   A400: #ff9100,
+//   A700: #ff6d00,
+//   contrast: (
+    
+//   )
+// );
+
+
+
+// $my-app-primary: mat.define-palette(mat.$orange-palette);
+// $my-app-accent: mat.define-palette(mat.$pink-palette);
+// $my-app-warn: mat.define-palette(mat.$red-palette);
+
+// $my-app-theme: mat.define-light-theme(
+//   (
+//     color: (
+//       primary: $my-app-primary,
+//       accent: $my-app-accent,
+//       warn: $my-app-warn,
+//     ),
+//   )
+// );
+
+// @include mat.all-component-themes($my-app-theme);
+
+
+html, body { height: 100%;
+background-color: black;
+    overflow-x: hidden;
+
+    
+ }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body::-webkit-scrollbar {
+    width: 7px; /* Remove scrollbar space */
+    background: rgb(106, 70, 4); /* Optional: just make scrollbar invisible */
+ }
+ 
+ body::-webkit-scrollbar-thumb {
+    background: orange;
+ }
+

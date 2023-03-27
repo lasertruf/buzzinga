@@ -1,0 +1,156 @@
+.outerWrapper {
+    display: flex;
+    flex-direction: column;
+    // width: 100%;
+    // background-color: pink;
+    color: orange;
+    background-image: 'assets/bgvideo.mp4';
+
+    .pageTitle {
+        float: left;
+        font-size: 48px;
+        padding: 50px;
+        padding-top: 80px;
+        z-index: 3;
+    }
+
+    .mainContentAreaWrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        padding-top: 0px;
+        // align-items: center;
+
+        .mainContentArea {
+            // align-items: center;
+            overflow-y: scroll;
+            display: flex;
+            gap: 2px;
+            width: 810px;
+            height: 580px;
+            flex-wrap: wrap;
+            justify-content: start;
+            float: right;
+            .mat-card {
+
+                opacity: 94%;
+                height: 370px;
+                width: 230px;
+                background-color: rgb(34, 34, 33);
+                color: orange;
+
+                .mat-card-subtitle {
+                    color: orange;
+                }
+
+                .mat-raised-button {
+                    color: rgb(247, 164, 49);
+                }
+
+                p{
+                    cursor: pointer;
+                }
+                img{
+                    cursor: pointer;
+                }
+            }
+
+        }
+
+        padding-left: 50px;
+
+        .mat-card {
+            opacity: 94%;
+            height: 230px;
+            width: 230px;
+            background-color: rgb(34, 34, 33);
+            color: orange;
+
+            .mat-card-subtitle {
+                color: orange;
+            }
+
+            .mat-raised-button {
+                color: orange;
+            }
+        }
+
+        .rightmostCardsWrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .rightmostScroll {
+                overflow-y: scroll;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                height: 510px;
+                width: 285px;
+
+                .mat-card {
+                    opacity: 94%;
+                    height: min-content;
+                    width: 230px;
+                    background-color: rgb(34, 34, 33);
+                    color: orange;
+
+                    .mat-card-subtitle {
+                        color: orange;
+                    }
+
+                    .mat-raised-button {
+                        color: orange;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+#textarea {
+    resize: none;
+    overflow: hidden;
+}
+
+::ng-deep .mat-form-field-outline {
+    color: orange !important;
+}
+
+::ng-deep .mat-form-field-label {
+    color: orange !important;
+}
+
+
+
+.mainContentArea::-webkit-scrollbar {
+    width: 5px;
+    /* Remove scrollbar space */
+    background: rgb(106, 70, 4);
+    /* Optional: just make scrollbar invisible */
+}
+
+.mainContentArea::-webkit-scrollbar-thumb {
+    background: orange;
+}
+
+
+
+.rightmostScroll::-webkit-scrollbar {
+    width: 5px;
+    /* Remove scrollbar space */
+    background: rgb(106, 70, 4);
+    /* Optional: just make scrollbar invisible */
+}
+
+.rightmostScroll::-webkit-scrollbar-thumb {
+    background: orange;
+}

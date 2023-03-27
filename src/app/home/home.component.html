@@ -1,0 +1,219 @@
+<video  autoplay loop style="position: absolute;height: 100vh;width: 100vw;object-fit: cover;opacity: 20%;" src="assets/bgvideo.mp4"></video>
+
+<div class="outerWrapper">
+
+
+    <div class="pageTitle">
+    buzZ!nga
+    </div>
+
+
+    <div class="mainContentAreaWrapper">
+
+        
+        <div >
+            <mat-card>
+
+
+                <mat-form-field style="width: 230px;"  appearance="outline">
+                    <mat-label >tell us wachu think!n</mat-label>
+                    <textarea  #textInput  matInput name="" id="textarea" cols="25" rows="8" maxlength="200"></textarea>
+                    <mat-hint style="color:orange;" align="end">{{textInput.value.length}} / 200</mat-hint>
+                </mat-form-field>
+                 <button style="float: right;margin-top: 5px;" (click)="openDialog()" mat-raised-button color="accent" >buzZ !t</button>
+            </mat-card>
+        </div>
+
+        <div class="mainContentArea" >
+            <!-- <button mat-raised-button  (click)="makePost()">Make post</button>
+            <br>
+            <button mat-raised-button  (click)="showPosts()">Show post</button>
+            <br>
+            <br> -->
+
+            <!-- <mat-card *ngFor="let i of postsArr" > -->
+                <mat-card  >
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Shiba Inu</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p >
+                     Made a buzzing website today!!
+                     Checking char count in this.
+                     Made a buzzing website today!!
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions >
+                    <button mat-icon-button  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button>
+                  </mat-card-actions>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Shiba Inu</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>
+
+                  <mat-card-content style="display: flex;flex-direction: row;align-items: center;
+                  height: 250px;justify-content: center;">
+
+                    <p style="padding: 2px;">
+                        Made a buzzing website today!! Checking char count in this. Made a buzzing website today!! 
+                        Checking char count in this. Checking char count in this.
+                        Made a buzzing website today!! Checking char count 
+
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions >
+                    <button mat-icon-button style="position: absolute;bottom: 10px;"  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button>
+                  </mat-card-actions>
+            </mat-card>
+
+            <mat-card >
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Shiba Inu</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>   
+                  
+                  <div style="display:flex;justify-content: center;width: auto;">
+                    <img height="auto" width="230"  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+
+                  </div>
+
+                  <br>
+                  <mat-card-content >
+                    <p >
+                        Made a buzzing website today!! Checking char count in this. Made a buzzing website today!! 
+                        Checking char count in this. Checking char count in this.
+                        Made a buzzing website today!! Checking char count 
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions >
+                    <button mat-icon-button  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button>
+                  </mat-card-actions>
+            </mat-card>
+
+            <mat-card >
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Shiba Inu</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>   
+                  
+                  <div style="display:flex;justify-content: center;height: 180px;width:230px;overflow: hidden;">
+                    <!-- <img   src="assets/vert.png" alt="Photo of a Shiba Inu"> -->
+                    <img   src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+
+                  </div>
+
+                  <br>
+                  <mat-card-content>
+                    <p style="height: 60px;overflow: hidden;margin: 0%;padding: 0%;">
+                        Made a buzzing website today!! Checking char count in this. Made a buzzing website today ...    
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions >
+                    <button mat-icon-button style="position: absolute;bottom: 10px;"  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button>
+                  </mat-card-actions>
+            </mat-card>
+
+
+            <mat-card  >
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Shiba Inu</mat-card-title>
+                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                      </mat-card-header>
+                      <mat-card-content>
+                        <p >
+                         Made a buzzing website today!!
+                         Checking char count in this.
+                         Made a buzzing website today!!
+                        </p>
+                      </mat-card-content>
+
+                  <mat-card-actions  >
+                    <button mat-icon-button  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button>
+                  </mat-card-actions>
+            </mat-card>
+            
+        </div>
+
+        <div class="rightmostCardsWrapper" >
+            <mat-card style="height: min-content;">
+                <h2>
+                  yoo.. what's happen!ng?!
+                </h2>
+            </mat-card>
+            <div class="rightmostScroll">
+                
+               
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Shiba Inu</mat-card-title>
+                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                      </mat-card-header>
+                      <img height="auto" width="230"  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                      <br>
+                     
+                </mat-card>
+
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Shiba Inu</mat-card-title>
+                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                      </mat-card-header>
+                    asdasklmdasklmds
+                </mat-card>
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Shiba Inu</mat-card-title>
+                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                      </mat-card-header>
+                    asdasklmdasklmds
+                </mat-card>
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Shiba Inu</mat-card-title>
+                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                      </mat-card-header>
+                    asdasklmdasklmds
+                    asd
+                    asd
+                    asdas
+                    as
+                    as
+                    das
+
+                </mat-card>
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Shiba Inu</mat-card-title>
+                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                      </mat-card-header>
+                    asdasklmdasklmds
+                    asd
+                    asd
+                    asdas
+                    as
+                    as
+                    das
+                    
+                </mat-card>
+            </div>
+          
+        </div>
+    
+    </div>
+
+</div>
+
