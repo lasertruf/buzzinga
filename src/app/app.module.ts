@@ -6,6 +6,9 @@ import {
   FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
 
+import {NgxImageCompressService} from 'ngx-image-compress';
+
+
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -51,7 +54,7 @@ import { HomeLayoutComponent } from './layouts/homeLayout.component';
 
     
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,NgxImageCompressService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

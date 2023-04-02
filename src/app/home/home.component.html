@@ -1,4 +1,4 @@
-<video  autoplay loop style="position: absolute;height: 100vh;width: 100vw;object-fit: cover;opacity: 20%;" src="assets/bgvideo.mp4"></video>
+<video  autoplay loop style="position: fixed;height: 100vh;width: 100vw;object-fit: cover;opacity: 20%;" src="assets/bgvideo.mp4"></video>
 
 <div class="outerWrapper">
 
@@ -17,10 +17,11 @@
 
                 <mat-form-field style="width: 230px;"  appearance="outline">
                     <mat-label >tell us wachu think!n</mat-label>
-                    <textarea  #textInput  matInput name="" id="textarea" cols="25" rows="8" maxlength="200"></textarea>
+                    <textarea  #textInput [(ngModel)]="postInput"  matInput name="" id="textarea" cols="25" rows="8" maxlength="200"></textarea>
                     <mat-hint style="color:orange;" align="end">{{textInput.value.length}} / 200</mat-hint>
                 </mat-form-field>
-                 <button style="float: right;margin-top: 5px;" (click)="openDialog()" mat-raised-button color="accent" >buzZ !t</button>
+                <!-- <button mat-icon-button #tooltip="matTooltip" matTooltip="Upload image" (click)="compressFile()"><mat-icon>image</mat-icon></button> -->
+                 <button style="float: right;margin-top: 5px;" (click)="makePost()" mat-raised-button color="accent" >buzZ !t</button>
             </mat-card>
         </div>
 
@@ -31,73 +32,28 @@
             <br>
             <br> -->
 
-            <!-- <mat-card *ngFor="let i of postsArr" > -->
-                <mat-card  >
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Shiba Inu</mat-card-title>
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                  </mat-card-header>
-                  <mat-card-content>
-                    <p >
-                     Made a buzzing website today!!
-                     Checking char count in this.
-                     Made a buzzing website today!!
-                    </p>
-                  </mat-card-content>
-                  <mat-card-actions >
-                    <button mat-icon-button  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button>
-                  </mat-card-actions>
-            </mat-card>
+    
 
-            <mat-card>
+            <mat-card *ngFor="let post of postsArr" >
                 <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title>Shiba Inu</mat-card-title>
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    <mat-card-subtitle>sh!tposter</mat-card-subtitle>
                   </mat-card-header>
 
                   <mat-card-content style="display: flex;flex-direction: row;align-items: center;
-                  height: 250px;justify-content: center;">
+                  height: 150px;justify-content: center;">
 
-                    <p style="padding: 2px;">
-                        Made a buzzing website today!! Checking char count in this. Made a buzzing website today!! 
-                        Checking char count in this. Checking char count in this.
-                        Made a buzzing website today!! Checking char count 
-
+                    <p style="padding: 2px;word-wrap: break-word !important; width: 220px;">
+                        {{post.body ? post.body.substring(0,200) : ''}}
                     </p>
                   </mat-card-content>
                   <mat-card-actions >
-                    <button mat-icon-button style="position: absolute;bottom: 10px;"  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button>
+                    <!-- <button mat-icon-button style="position: absolute;bottom: 10px;"  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button> -->
                   </mat-card-actions>
             </mat-card>
 
-            <mat-card >
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Shiba Inu</mat-card-title>
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                  </mat-card-header>   
-                  
-                  <div style="display:flex;justify-content: center;width: auto;">
-                    <img height="auto" width="230"  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-
-                  </div>
-
-                  <br>
-                  <mat-card-content >
-                    <p >
-                        Made a buzzing website today!! Checking char count in this. Made a buzzing website today!! 
-                        Checking char count in this. Checking char count in this.
-                        Made a buzzing website today!! Checking char count 
-                    </p>
-                  </mat-card-content>
-                  <mat-card-actions >
-                    <button mat-icon-button  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button>
-                  </mat-card-actions>
-            </mat-card>
-
-            <mat-card >
+            <!-- <mat-card >
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title>Shiba Inu</mat-card-title>
@@ -105,7 +61,6 @@
                   </mat-card-header>   
                   
                   <div style="display:flex;justify-content: center;height: 180px;width:230px;overflow: hidden;">
-                    <!-- <img   src="assets/vert.png" alt="Photo of a Shiba Inu"> -->
                     <img   src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
 
                   </div>
@@ -119,27 +74,10 @@
                   <mat-card-actions >
                     <button mat-icon-button style="position: absolute;bottom: 10px;"  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button>
                   </mat-card-actions>
-            </mat-card>
+            </mat-card> -->
 
 
-            <mat-card  >
-                    <mat-card-header>
-                        <div mat-card-avatar class="example-header-image"></div>
-                        <mat-card-title>Shiba Inu</mat-card-title>
-                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                      </mat-card-header>
-                      <mat-card-content>
-                        <p >
-                         Made a buzzing website today!!
-                         Checking char count in this.
-                         Made a buzzing website today!!
-                        </p>
-                      </mat-card-content>
-
-                  <mat-card-actions  >
-                    <button mat-icon-button  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button>
-                  </mat-card-actions>
-            </mat-card>
+          
             
         </div>
 
@@ -169,51 +107,39 @@
                         <mat-card-title>Shiba Inu</mat-card-title>
                         <mat-card-subtitle>Dog Breed</mat-card-subtitle>
                       </mat-card-header>
-                    asdasklmdasklmds
+                    APril ishere
                 </mat-card>
-                <mat-card>
-                    <mat-card-header>
-                        <div mat-card-avatar class="example-header-image"></div>
-                        <mat-card-title>Shiba Inu</mat-card-title>
-                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                      </mat-card-header>
-                    asdasklmdasklmds
-                </mat-card>
-                <mat-card>
-                    <mat-card-header>
-                        <div mat-card-avatar class="example-header-image"></div>
-                        <mat-card-title>Shiba Inu</mat-card-title>
-                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                      </mat-card-header>
-                    asdasklmdasklmds
-                    asd
-                    asd
-                    asdas
-                    as
-                    as
-                    das
 
-                </mat-card>
                 <mat-card>
-                    <mat-card-header>
-                        <div mat-card-avatar class="example-header-image"></div>
-                        <mat-card-title>Shiba Inu</mat-card-title>
-                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                      </mat-card-header>
-                    asdasklmdasklmds
-                    asd
-                    asd
-                    asdas
-                    as
-                    as
-                    das
-                    
-                </mat-card>
+                  <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title>Shiba Inu</mat-card-title>
+                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    </mat-card-header>
+                  and so is buzZ!nga
+              </mat-card>
+
+              <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Shiba Inu</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>
+               yay!
+            </mat-card>
+               
             </div>
           
         </div>
     
     </div>
+
+
+    <!-- <div style="z-index: 10;">
+      <button mat-raised-button (click)="compressFile()">Upload and compress Image</button>
+      <img *ngIf="imgResultBeforeCompress" [src]="imgResultBeforeCompress" alt="">
+      <img style="z-index: 5;" *ngIf="imgResultAfterCompress" [src]="imgResultAfterCompress" alt="">
+    </div> -->
 
 </div>
 
