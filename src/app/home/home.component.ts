@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import {NgxImageCompressService} from 'ngx-image-compress';
 import { CreatePostComponent } from '../create-post/create-post.component';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,9 +13,10 @@ import { CreatePostComponent } from '../create-post/create-post.component';
 })
 export class HomeComponent implements OnInit {
 
-  token = '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';
+  token = environment.gh_key;
   postsArr : any = [];
   postInput:any;
+  authorInput:any;
   imgResultBeforeCompress!:string;
   imgResultAfterCompress!:string;
 
@@ -40,24 +42,31 @@ export class HomeComponent implements OnInit {
   }
 
   makePost(){
-        this.postAPI()
-        .subscribe((res)=>{
-            console.log(res);
-            // alert("Issue Created");
-            this.showPosts();
-            this.postInput = '';
+    let postbody = '';
+        if(this.postInput.length>0){
+          if (this.authorInput.length<=0) {
+            postbody = this.postInput + "[Auth] - " + "Anonymous";
+          }else{
+            postbody = this.postInput + "[Auth] - " + this.authorInput;
+          }
+          this.postAPI(postbody)
+          .subscribe((res)=>{
+              console.log(res);
+              // alert("Issue Created");
+              this.showPosts();
+              this.postInput = '';
+              this.authorInput = '';
+  
+            },(error:any)=>{
+              // alert("Failed To Create Issue");
+              this.showPosts()
+            })
+        }
 
-          },(error:any)=>{
-            // alert("Failed To Create Issue");
-            this.showPosts()
-          })
-      
-    
   }
 
-    postAPI(){
-      console.log("make post");
-      
+    postAPI(postbody:any){
+      // console.log("make post");
       let httpHeaders = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
@@ -70,7 +79,7 @@ export class HomeComponent implements OnInit {
        let API_URL = "https://api.github.com/repos/lasertruf/buzzinga/issues"
       let body = {
         title : 'New Post',
-        body :this.postInput,
+        body :postbody,
         // assignees:["lasertruf"]
         // owner: 'lasertruf',
         // repo: 'fridayGoals',
@@ -105,7 +114,7 @@ export class HomeComponent implements OnInit {
       let httpHeaders = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': this.token,
+          'Authorization': 'token ' +  this.token,
           'Accept': 'application/vnd.github.v3+json'
         })
       }
@@ -154,8 +163,17 @@ export class HomeComponent implements OnInit {
 
       return this.httpClient.get(API_URL,httpHeaders)
       .pipe(map((res:any ) => {   
+        // this.postsArr=res; 
+        // console.log(this.postsArr);
+        // res.forEach((element:any) => {
+        //   element.body = element.body.split('[Auth]')[0];
+        // });
+
+        res = res.filter((el:any) => el.state == 'open')
+        console.log(res,"filytered");
+        
         this.postsArr=res; 
-        console.log(this.postsArr);
+
                   
           return res;
   }));
@@ -163,6 +181,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.showPosts();
+      
   }
   compressFile() {
   
@@ -183,5 +202,44 @@ export class HomeComponent implements OnInit {
       
     });
     
+  }
+
+  onDelete(post:any){
+    console.log(post);
+    
+    this.deleteAPI(post).subscribe(()=>{
+      setTimeout(() => {
+      this.showPosts();
+        
+      }, 3000);
+    })
+  }
+
+  deleteAPI(post:any){
+
+    let httpHeaders = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'token '+  this.token,
+        'Accept': 'application/vnd.github.v3+json'
+      })
+    }
+
+    let API_URL = "https://api.github.com/repos/lasertruf/buzzinga/issues/"
+    let body = {
+      state : 'closed'
+    }
+    return this.httpClient.patch(post.url,body,httpHeaders)
+    .pipe(map((res:any ) => {   
+      // this.postsArr=res; 
+      // console.log(this.postsArr);
+      // res.forEach((element:any) => {
+      //   element.body = element.body.split('[Auth]')[0];
+      // });
+      // this.postsArr=res as string[]; 
+
+                
+        return res;
+}));
   }
 }

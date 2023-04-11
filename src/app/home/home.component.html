@@ -16,10 +16,16 @@
 
 
                 <mat-form-field style="width: 230px;"  appearance="outline">
-                    <mat-label >tell us wachu think!n</mat-label>
+                    <mat-label > !m think!n</mat-label>
                     <textarea  #textInput [(ngModel)]="postInput"  matInput name="" id="textarea" cols="25" rows="8" maxlength="200"></textarea>
                     <mat-hint style="color:orange;" align="end">{{textInput.value.length}} / 200</mat-hint>
                 </mat-form-field>
+                <mat-form-field  style="width: 230px;"   appearance="outline">
+                  <mat-label >people call me</mat-label>
+                  <input  #authInput [(ngModel)]="authorInput"  matInput name=""  maxlength="20">
+                  <mat-hint style="color:orange;" align="end">{{authInput.value.length}} / 20</mat-hint>
+              </mat-form-field>
+              
                 <!-- <button mat-icon-button #tooltip="matTooltip" matTooltip="Upload image" (click)="compressFile()"><mat-icon>image</mat-icon></button> -->
                  <button style="float: right;margin-top: 5px;" (click)="makePost()" mat-raised-button color="accent" >buzZ !t</button>
             </mat-card>
@@ -34,22 +40,22 @@
 
     
 
-            <mat-card *ngFor="let post of postsArr" >
+            <mat-card *ngFor="let post of postsArr " >
                 <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Shiba Inu</mat-card-title>
-                    <mat-card-subtitle>sh!tposter</mat-card-subtitle>
+                <div mat-card-avatar class="avatar" >{{post.body ? ((post.body.split('[Auth] - ')[1]).substring(0,1) | titlecase) : 'Anon'}}</div>
+                    <mat-card-title>{{post.body ? ((post.body.split('[Auth] - ')[1]) | titlecase) : 'Anon'}}</mat-card-title>
+                    <mat-card-subtitle>says...</mat-card-subtitle>
                   </mat-card-header>
 
                   <mat-card-content style="display: flex;flex-direction: row;align-items: center;
                   height: 150px;justify-content: center;">
 
                     <p style="padding: 2px;word-wrap: break-word !important; width: 220px;">
-                        {{post.body ? post.body.substring(0,200) : ''}}
+                        {{post.body ? (post.body.split('[Auth] - ')[0]).substring(0,200) : ''}}
                     </p>
                   </mat-card-content>
                   <mat-card-actions >
-                    <!-- <button mat-icon-button style="position: absolute;bottom: 10px;"  #tooltip="matTooltip" matTooltip="Comments"><mat-icon>message</mat-icon></button> -->
+                    <button mat-icon-button (click)="onDelete(post)"  #tooltip="matTooltip" matTooltip="Delete"><mat-icon>delete</mat-icon></button>
                   </mat-card-actions>
             </mat-card>
 
